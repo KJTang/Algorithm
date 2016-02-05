@@ -413,7 +413,26 @@ public:
         return true;
     }
 
-    T find(int key, T &flag) {
+    T find(int key, T flag) {
+        TreeNode<T> *cur = root;
+        while (cur) {
+            for (int i = 0; i != cur->count; ++i) {
+                if (key < cur->dataNodes[i]->key) {
+                    cur = cur->children[i];
+                    break;
+                } else if (key > cur->dataNodes[i]->key) {
+                    if (i == cur->count-1) {
+                        cur = cur->children[cur->count];
+                        break;
+                    } else {
+                        continue;
+                    }
+                } else {
+                    return cur->dataNodes[i]->data;
+                }
+            }
+        }
+        // cannot find, return flag
         return flag;
     }
 
