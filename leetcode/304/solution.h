@@ -19,20 +19,11 @@ public:
                 matrix_[i][j] += matrix_[i][j - 1];
             }
         }
-
-        for (int i = 0; i != height_; ++i) {
-            for (int j = 0; j != width_; ++j) {
-                std::cout << matrix_[i][j] << " ";
-            }
-            std::cout << std::endl;
-        }
     }
     
     int sumRegion(int row1, int col1, int row2, int col2) {
-        std::cout << "===" << std::endl;
         int sum = 0;
         for (int i = row1; i <= row2; ++i) {
-            std::cout << "sum += " << (matrix_[i][col2] - (col1 == 0 ? 0 : matrix_[i][col1 - 1])) << std::endl;
             sum += matrix_[i][col2] - (col1 == 0 ? 0 : matrix_[i][col1 - 1]);
         }
         return sum;
