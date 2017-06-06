@@ -15,7 +15,7 @@ public:
             } else if (nums[GetIndex(i)] < mid) {
                 std::swap(nums[GetIndex(i)], nums[GetIndex(high--)]);  
             } else {
-                i++;  
+                ++i;
             }
         }
     }
@@ -64,7 +64,7 @@ public:
             } else if (nums[index[i]] < mid) {
                 std::swap(nums[index[i]], nums[index[high--]]);  
             } else {
-                i++;  
+                ++i;  
             }
         }
     }
